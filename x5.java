@@ -5,7 +5,7 @@
 
 String title=  "ELASTIC COLLISIONS";
 String news=   "Use 'r' key to reset.";
-String author=  "Your Name";
+String author=  "Ana Collantes";
 
 
 float left, right, top, bottom;
@@ -35,14 +35,14 @@ void setup() {
    yelX=  random( middle,right );   yelY=  random( top, bottom );
    bluX=  random( middle,right );   bluY=  random( top, bottom );
    // Random speeds
-   redDX=  random( 1,3 );   redDY=  random( 1,3 );
-   yelDX=  random( 1,3 );   redDY=  random( 1,3 );
-   bluDX=  random( 1,3 );   bluDY=  random( 1,3 );
+   redDX=  random( 2,3 );   redDY=  random( 2,3 );
+   yelDX=  random( 3,4 );   redDY=  random( 3,4 );
+   bluDX=  random( 2,5 );   bluDY=  random( 2,5 );
  }
 
 //// NEXT FRAME:  table, bounce off walls, collisions, show all
 void draw() {
-  background( 250,250,200 );
+  background( 248, 201, 255 );
   rectMode( CORNERS );
   table( left, top, right, bottom );
   bounce();
@@ -53,7 +53,7 @@ void draw() {
 
 //// SCENE:  draw the table with walls
 void table( float left, float top, float right, float bottom ) {
-  fill( 100, 250, 100 );    // green pool table
+  fill( 18, 134, 16 );    // green pool table
   strokeWeight(20);
   stroke( 127, 0, 0 );      // Brown walls
   rect( left-20, top-20, right+20, bottom+20 );
@@ -64,6 +64,7 @@ void table( float left, float top, float right, float bottom ) {
 //// ACTION:  bounce off walls, collisions
 void bounce() {
   redX += redDX;  if ( redX<left || redX>right ) redDX *= -1;
+  redY += redDY;  if ( redY<top || redY>bottom ) redDY *=  -1;
 }
 void collisions() {
   float tmp;
@@ -76,13 +77,29 @@ void collisions() {
 
 //// SHOW:  balls, messages
 void show() {
-  fill( 255,255,255 );    ellipse( redX,redY, 30,30 );
+  ///--fill( 255,255,255 );    ellipse( redX,redY, 30,30 );
   fill( 255,0,0 );    ellipse( redX,redY, 30,30 );
   fill( 255,255,0 );  ellipse( yelX,yelY, 30,30 );
   fill( 0,0,255 );    ellipse( bluX,bluY, 30,30 );
   fill( 255,255,255 );    ellipse( cueX,cueY, 30,30 );
+  
+  /// four black circles
+//up--left
+fill(0);
+ellipse(52, 98, 30, 30);
+ //up--right
+fill(0);
+ellipse(550, 98, 30, 30);
+// down--left
+fill(0);
+ellipse(52,352, 30, 30);
+//down--right
+fill(0);
+ellipse(550, 352, 30, 30);
+
 }
 void messages() {
+  fill(0);
   text( title, width/3, 20 );
   text( news, width/3, 40 );
   text( author, 10, height-10 );
@@ -95,3 +112,6 @@ void keyPressed() {
     reset();
   }
 }
+
+
+

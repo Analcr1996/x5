@@ -86,9 +86,9 @@ void collisions() {
 //// SHOW:  balls, messages
 void show() {
   ///--fill( 255,255,255 );    ellipse( redX,redY, 30,30 );
-  fill( 255,0,0 );    ellipse( redX,redY, 30,30 );
-  fill( 255,255,0 );  ellipse( yelX,yelY, 30,30 );
-  fill( 0,0,255 );    ellipse( bluX,bluY, 30,30 );
+  fill( 44,255,250 );    ellipse( redX,redY, 30,30 );
+  fill( 252,88,255 );  ellipse( yelX,yelY, 30,30 );
+  fill( 255,191,88 );    ellipse( bluX,bluY, 30,30 );
   fill( 255,255,255 );    ellipse( cueX,cueY, 30,30 );
   
   /// four black circles
@@ -120,7 +120,6 @@ void keyPressed() {
     reset();
   }
 }
-
 
 
 
